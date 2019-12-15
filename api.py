@@ -76,11 +76,11 @@ class Algo:
         self.maps = [Map(map.start_town, map.current_path[:], map.towns[:]) for _ in map.towns]
 
     def do(self, level):
-        print('level', level)
-        print(self.maps)
+        # print('level', level)
+        # print(self.maps)
 
         if len(self.maps) == 1:  # results
-            # print('sd', self.maps[0].current_path)
+            print('sd', self.maps[0].current_path)
             print(self.maps[0].path())
 
         score = 100000000
@@ -90,7 +90,7 @@ class Algo:
         maps_to_delete = []
         for map in self.maps:
             if score >= map.branch_and_bound():
-                print(map.branch_and_bound())
+                # print(map.branch_and_bound())
                 score = map.branch_and_bound()
             else:
                 maps_to_delete.append(map)
