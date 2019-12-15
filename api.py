@@ -80,8 +80,13 @@ class Algo:
         # print(self.maps)
 
         if len(self.maps) == 1:  # results
-            print('sd', self.maps[0].current_path)
-            print(self.maps[0].path())
+            map = self.maps[0]
+            # for i in map.current_path:
+            #     print(i)
+            # print(map.towns[0])
+            value = map.branch_and_bound() + map.towns[0].distance(map.start_town)
+            path = '0 -> ' + self.maps[0].path() + ' -> ' + str(map.towns[0].idx)
+            print(f'value: {value}, path: {path}')
 
         score = 100000000
         for idx, map in enumerate(self.maps):
